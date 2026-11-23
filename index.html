@@ -2,396 +2,301 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-  <title>TikTok Pro · Get Rewarded 💕</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join me on TikTok Pro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,600&family=Nunito:wght@500;700;800&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    :root {
+      --rose-900: #4a1d33;
+      --rose-700: #b8326a;
+      --rose-500: #ee5b8f;
+      --rose-300: #f9a8c6;
+      --rose-100: #ffe4ef;
+      --rose-50:  #fff6fa;
+      --lilac:    #e9dcff;
+      --muted:    #a7798f;
     }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
-      background: linear-gradient(160deg, #ffeef5 0%, #fde2ed 40%, #f3e8ff 100%);
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px 16px;
-      font-family: 'Poppins', -apple-system, 'Segoe UI', 'Helvetica Neue', system-ui, sans-serif;
+      display: grid;
+      place-items: center;
+      padding: 28px 16px;
+      font-family: 'Nunito', system-ui, sans-serif;
+      color: var(--rose-900);
+      background:
+        radial-gradient(circle at 15% 10%, #ffd6e7 0, transparent 45%),
+        radial-gradient(circle at 90% 85%, var(--lilac) 0, transparent 50%),
+        linear-gradient(165deg, #fff1f6, #fde7f0 50%, #f5edff);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
-    /* floating hearts background */
-    .hearts {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 0;
+    /* ---------- floating decorations ---------- */
+    .float-layer { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
+    .float-layer svg {
+      position: absolute; bottom: -60px;
+      animation: drift 14s linear infinite;
+      opacity: 0;
+    }
+    .float-layer svg:nth-child(1) { left: 6%;  width: 26px; animation-delay: 0s; }
+    .float-layer svg:nth-child(2) { left: 24%; width: 16px; animation-delay: 3s; }
+    .float-layer svg:nth-child(3) { left: 46%; width: 30px; animation-delay: 7s; }
+    .float-layer svg:nth-child(4) { left: 68%; width: 18px; animation-delay: 1.5s; }
+    .float-layer svg:nth-child(5) { left: 84%; width: 24px; animation-delay: 5s; }
+    .float-layer svg:nth-child(6) { left: 94%; width: 14px; animation-delay: 9s; }
+    @keyframes drift {
+      0%   { transform: translateY(0) rotate(-10deg); opacity: 0; }
+      12%  { opacity: .55; }
+      85%  { opacity: .55; }
+      100% { transform: translateY(-115vh) rotate(20deg); opacity: 0; }
     }
 
-    .hearts span {
-      position: absolute;
-      font-size: 1.2rem;
-      opacity: 0.35;
-      animation: floatUp 9s linear infinite;
-    }
-
-    .hearts span:nth-child(1) { left: 8%;  animation-delay: 0s;   font-size: 1.4rem; }
-    .hearts span:nth-child(2) { left: 22%; animation-delay: 2.5s; font-size: 1rem;   }
-    .hearts span:nth-child(3) { left: 40%; animation-delay: 5s;   font-size: 1.6rem; }
-    .hearts span:nth-child(4) { left: 60%; animation-delay: 1.5s; font-size: 1.1rem; }
-    .hearts span:nth-child(5) { left: 78%; animation-delay: 4s;   font-size: 1.3rem; }
-    .hearts span:nth-child(6) { left: 90%; animation-delay: 6.5s; font-size: 0.9rem; }
-
-    @keyframes floatUp {
-      0%   { transform: translateY(105vh) rotate(0deg);   opacity: 0; }
-      10%  { opacity: 0.4; }
-      90%  { opacity: 0.4; }
-      100% { transform: translateY(-10vh) rotate(25deg);  opacity: 0; }
-    }
-
+    /* ---------- card ---------- */
     .card {
-      max-width: 380px;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(14px);
-      border-radius: 36px;
-      padding: 32px 22px 26px;
-      box-shadow: 0 8px 32px rgba(255, 105, 150, 0.15), 0 2px 8px rgba(255, 105, 150, 0.08);
-      border: 1.5px solid #ffe1ec;
+      position: relative; z-index: 1;
+      width: 100%; max-width: 384px;
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,.9);
+      border-radius: 34px;
+      padding: 30px 24px 24px;
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.9) inset,
+        0 24px 60px -20px rgba(184,50,106,.35),
+        0 4px 14px rgba(238,91,143,.08);
       text-align: center;
-      position: relative;
-      z-index: 1;
+    }
+    .card-bow {
+      position: absolute; top: -26px; left: 50%;
+      transform: translateX(-50%);
+      width: 72px;
+      filter: drop-shadow(0 6px 10px rgba(184,50,106,.25));
     }
 
-    /* chat bubble from "me" */
-    .chat-bubble {
-      background: #fff0f5;
-      border: 1.5px solid #ffd0e0;
-      border-radius: 24px 24px 24px 6px;
+    /* ---------- avatar + bubble ---------- */
+    .who {
+      display: flex; align-items: center; gap: 10px;
+      margin: 12px 0 12px 2px;
+    }
+    .avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: linear-gradient(140deg, var(--rose-300), var(--rose-500));
+      display: grid; place-items: center;
+      box-shadow: 0 0 0 3px #fff, 0 0 0 4.5px var(--rose-100);
+      position: relative;
+    }
+    .avatar svg { width: 20px; }
+    .avatar::after {
+      content: ''; position: absolute; right: -1px; bottom: -1px;
+      width: 11px; height: 11px; border-radius: 50%;
+      background: #3ccf73; border: 2px solid #fff;
+    }
+    .who-text { text-align: left; line-height: 1.2; }
+    .who-text b { font-size: .9rem; font-weight: 800; }
+    .who-text small { display: block; font-size: .7rem; color: var(--muted); font-weight: 700; }
+
+    .bubble {
+      background: linear-gradient(180deg, #fff, var(--rose-50));
+      border: 1px solid var(--rose-100);
+      border-radius: 6px 22px 22px 22px;
       padding: 16px 18px;
-      margin: 0 auto 18px;
-      max-width: 92%;
       text-align: left;
-      position: relative;
-      box-shadow: 0 4px 14px rgba(255, 105, 150, 0.1);
-    }
-
-    .chat-bubble::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: -8px;
-      width: 18px;
-      height: 18px;
-      background: #fff0f5;
-      border-left: 1.5px solid #ffd0e0;
-      border-bottom: 1.5px solid #ffd0e0;
-      border-radius: 0 0 0 16px;
-      transform: skewX(15deg);
-    }
-
-    .bubble-name {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: #e0456e;
-      letter-spacing: 0.4px;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-
-    .bubble-name .dot {
-      width: 7px;
-      height: 7px;
-      background: #4cd964;
-      border-radius: 50%;
-      box-shadow: 0 0 0 2px #d4f7dc;
-    }
-
-    .bubble-text {
-      font-size: 0.95rem;
-      line-height: 1.55;
-      color: #4a2e3a;
+      font-size: .98rem;
+      line-height: 1.6;
       font-weight: 500;
+      box-shadow: 0 6px 18px -8px rgba(238,91,143,.3);
     }
-
-    .bubble-text strong {
-      color: #e0456e;
-      font-weight: 700;
+    .bubble strong { font-weight: 800; color: var(--rose-700); }
+    .bubble .script {
+      font-family: 'Fraunces', serif; font-style: italic; font-weight: 600;
+      color: var(--rose-500); font-size: 1.08em;
     }
+    .bubble .hey { display: inline-flex; align-items: center; gap: 4px; }
+    .bubble .hey svg { width: 15px; vertical-align: -2px; }
 
-    .bubble-text em {
-      font-style: normal;
-      background: linear-gradient(135deg, #ff5c8a, #ff9ec2);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      font-weight: 700;
+    /* ---------- CTA ---------- */
+    .cta-label {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      margin: 24px 0 10px;
+      font-size: .72rem; font-weight: 800; letter-spacing: 1.6px;
+      text-transform: uppercase; color: var(--rose-500);
     }
+    .cta-label svg { width: 12px; animation: twinkle 2s ease-in-out infinite; }
+    .cta-label svg:last-child { animation-delay: 1s; }
+    @keyframes twinkle { 0%,100% { transform: scale(.7) rotate(0); opacity: .5; } 50% { transform: scale(1.15) rotate(20deg); opacity: 1; } }
 
-    .bubble-heart {
-      margin-top: 8px;
-      font-size: 1.1rem;
-      letter-spacing: 2px;
-    }
-
-    /* pointing arrow / cute */
-    .pointer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 4px 0 2px;
-    }
-
-    .pointer-text {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: #ff5c8a;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 2px;
-      animation: wiggle 1.8s ease-in-out infinite;
-    }
-
-    .pointer-emoji {
-      font-size: 1.8rem;
-      line-height: 1;
-      animation: bounceDown 1.6s ease-in-out infinite;
-      display: block;
-    }
-
-    @keyframes wiggle {
-      0%, 100% { transform: rotate(-2deg); }
-      50%      { transform: rotate(2deg); }
-    }
-
-    @keyframes bounceDown {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(7px); }
-    }
-
-    /* TIKTOK PRO BUTTON — cute, glossy, pressable */
-    .pro-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 11px;
-      background: linear-gradient(135deg, #ffffff 0%, #fff8fb 100%);
-      border: 2px solid #ffc2d6;
-      border-radius: 60px;
-      padding: 13px 30px 13px 22px;
-      margin: 6px auto 10px;
-      cursor: pointer;
+    .cta {
+      display: flex; align-items: center; gap: 14px;
+      width: 100%;
+      padding: 12px 18px 12px 12px;
+      border-radius: 999px;
       text-decoration: none;
-      transition: all 0.18s ease;
+      background: linear-gradient(135deg, #ff7aa6, var(--rose-500) 55%, #d93f7c);
+      color: #fff;
+      box-shadow:
+        0 1px 0 rgba(255,255,255,.45) inset,
+        0 -3px 0 rgba(0,0,0,.08) inset,
+        0 14px 28px -10px rgba(217,63,124,.7);
+      transition: transform .18s ease, box-shadow .18s ease;
       -webkit-tap-highlight-color: transparent;
-      box-shadow: 0 5px 0 #ffd6e5, 0 12px 26px rgba(255, 92, 138, 0.22);
-      position: relative;
-      z-index: 2;
-      animation: glowPulse 2.4s ease-in-out infinite;
+      position: relative; overflow: hidden;
     }
+    .cta::before {
+      content: ''; position: absolute; top: 0; left: -60%;
+      width: 40%; height: 100%;
+      background: linear-gradient(100deg, transparent, rgba(255,255,255,.45), transparent);
+      transform: skewX(-20deg);
+      animation: shine 3.2s ease-in-out infinite;
+    }
+    @keyframes shine { 0%, 55% { left: -60%; } 100% { left: 130%; } }
+    .cta:hover  { transform: translateY(-2px); }
+    .cta:active { transform: translateY(1px) scale(.99); }
 
-    .pro-button:active {
-      transform: translateY(4px);
-      box-shadow: 0 1px 0 #ffd6e5, 0 6px 16px rgba(255, 92, 138, 0.25);
-      border-color: #ff9ec2;
+    .cta-icon {
+      flex: none; width: 46px; height: 46px; border-radius: 50%;
+      background: #fff; display: grid; place-items: center;
+      box-shadow: 0 4px 10px rgba(184,50,106,.25);
     }
+    .cta-icon svg { width: 24px; }
+    .cta-text { flex: 1; text-align: left; line-height: 1.15; }
+    .cta-text b { display: block; font-size: 1.1rem; font-weight: 800; letter-spacing: -.2px; }
+    .cta-text small { font-size: .72rem; font-weight: 700; opacity: .88; }
+    .cta-arrow { width: 20px; flex: none; transition: transform .2s ease; }
+    .cta:hover .cta-arrow { transform: translateX(3px); }
 
-    @keyframes glowPulse {
-      0%, 100% { box-shadow: 0 5px 0 #ffd6e5, 0 12px 26px rgba(255, 92, 138, 0.22); }
-      50%      { box-shadow: 0 5px 0 #ffd6e5, 0 14px 34px rgba(255, 92, 138, 0.4); }
+    /* ---------- steps ---------- */
+    .steps {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+      margin: 22px 0 18px;
+      list-style: none;
     }
-
-    .pro-icon {
-      width: 38px;
-      height: 38px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #fff0f5;
-      border-radius: 14px;
-      padding: 5px;
-      box-shadow: inset 0 1px 3px rgba(255, 92, 138, 0.1);
+    .steps li {
+      background: var(--rose-50);
+      border: 1px solid var(--rose-100);
+      border-radius: 18px;
+      padding: 12px 6px 10px;
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
     }
-
-    .pro-icon svg {
-      width: 26px;
-      height: 26px;
-      display: block;
+    .steps .ico {
+      width: 32px; height: 32px; border-radius: 11px;
+      background: #fff; display: grid; place-items: center;
+      box-shadow: 0 2px 6px rgba(238,91,143,.15);
     }
-
-    .pro-text {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      line-height: 1.2;
-    }
-
-    .pro-text .title {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: #3d2230;
-      letter-spacing: -0.2px;
-    }
-
-    .pro-text .title span {
-      background: linear-gradient(135deg, #ff5c8a, #ff9ec2);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .pro-text .tagline {
-      font-size: 0.6rem;
-      font-weight: 700;
-      color: #c98aa8;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    /* convincing cute stats */
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 26px;
-      margin: 18px 0 14px;
-    }
-
-    .stat {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1px;
-    }
-
-    .stat b {
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: #3d2230;
-      letter-spacing: -0.2px;
-    }
-
-    .stat small {
-      font-size: 0.6rem;
-      font-weight: 600;
-      color: #c98aa8;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-    }
-
-    .trust {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: #f0fff4;
-      border: 1px solid #c8f0d4;
-      color: #2e8b57;
-      font-size: 0.7rem;
-      font-weight: 600;
-      padding: 6px 16px;
-      border-radius: 30px;
-      margin-bottom: 16px;
-    }
-
-    .trust svg {
-      width: 13px;
-      height: 13px;
-      fill: #2e8b57;
-    }
+    .steps .ico svg { width: 17px; }
+    .steps span { font-size: .7rem; font-weight: 800; color: var(--rose-900); line-height: 1.25; }
+    .steps em { font-style: normal; font-size: .6rem; color: var(--muted); font-weight: 700; letter-spacing: .6px; text-transform: uppercase; }
 
     .footnote {
-      font-size: 0.62rem;
-      color: #c4a6b4;
-      line-height: 1.5;
-      letter-spacing: 0.2px;
-    }
-
-    .footnote a {
-      color: #e07a9e;
-      text-decoration: none;
-      font-weight: 600;
+      font-size: .66rem; color: var(--muted); line-height: 1.55; font-weight: 600;
     }
   </style>
 </head>
 <body>
 
-  <!-- floating hearts -->
-  <div class="hearts" aria-hidden="true">
-    <span>💕</span><span>💖</span><span>✨</span><span>💗</span><span>🌸</span><span>💞</span>
+  <!-- reusable shapes -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="pink" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#ffa3c4"/>
+        <stop offset="1" stop-color="#e84a86"/>
+      </linearGradient>
+      <symbol id="heart" viewBox="0 0 24 24">
+        <path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 2.9 4.5 6.6 4.5c2.2 0 3.7 1.2 5.4 3.2 1.7-2 3.2-3.2 5.4-3.2 3.7 0 5.7 3.9 4.2 7.3C19.5 16.4 12 21 12 21z" fill="url(#pink)"/>
+        <path d="M6.3 7.6c-.9.3-1.6 1.2-1.6 2.3" stroke="#fff" stroke-width="1.4" stroke-linecap="round" fill="none" opacity=".7"/>
+      </symbol>
+      <symbol id="sparkle" viewBox="0 0 24 24">
+        <path d="M12 1.5c.6 5.6 4.9 9.9 10.5 10.5-5.6.6-9.9 4.9-10.5 10.5C11.4 16.9 7.1 12.6 1.5 12 7.1 11.4 11.4 7.1 12 1.5z" fill="url(#pink)"/>
+      </symbol>
+      <symbol id="bow" viewBox="0 0 64 40">
+        <path d="M30 18C22 6 6 2 4 10c-2 7 4 16 12 16 6 0 11-3 14-8z" fill="url(#pink)"/>
+        <path d="M34 18c8-12 24-16 26-8 2 7-4 16-12 16-6 0-11-3-14-8z" fill="url(#pink)"/>
+        <path d="M28 22l-8 16 6-2 4 4 3-16zM36 22l8 16-6-2-4 4-3-16z" fill="#e84a86"/>
+        <rect x="26" y="13" width="12" height="12" rx="5" fill="#d93f7c"/>
+        <path d="M9 11c1-3 5-3 9-1" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".6"/>
+        <path d="M46 10c4-2 8-1 9 2" stroke="#fff" stroke-width="1.6" stroke-linecap="round" fill="none" opacity=".6"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="float-layer" aria-hidden="true">
+    <svg viewBox="0 0 24 24"><use href="#heart"/></svg>
+    <svg viewBox="0 0 24 24"><use href="#sparkle"/></svg>
+    <svg viewBox="0 0 64 40"><use href="#bow"/></svg>
+    <svg viewBox="0 0 24 24"><use href="#heart"/></svg>
+    <svg viewBox="0 0 24 24"><use href="#sparkle"/></svg>
+    <svg viewBox="0 0 24 24"><use href="#heart"/></svg>
   </div>
 
-  <div class="card">
+  <main class="card">
+    <svg class="card-bow" viewBox="0 0 64 40" aria-hidden="true"><use href="#bow"/></svg>
 
-    <!-- FLIRTY CHAT BUBBLE MESSAGE -->
-    <div class="chat-bubble">
-      <div class="bubble-name">
-        <span class="dot"></span> me, right now
+    <div class="who">
+      <div class="avatar">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 2.9 4.5 6.6 4.5c2.2 0 3.7 1.2 5.4 3.2 1.7-2 3.2-3.2 5.4-3.2 3.7 0 5.7 3.9 4.2 7.3C19.5 16.4 12 21 12 21z" fill="#fff"/></svg>
       </div>
-      <div class="bubble-text">
-        hey you 😘 <strong>download tiktok pro</strong> using my link below
-        and <em>contact me</em> to earn rewards… trust me, you're gonna
-        wanna slide into my DMs after this 💌
+      <div class="who-text">
+        <b>me</b>
+        <small>online now</small>
       </div>
-      <div class="bubble-heart">💖 💕 💖</div>
     </div>
 
-    <!-- cute pointer -->
-    <div class="pointer">
-      <span class="pointer-text">👇 press me, pretty please 👇</span>
-      <span class="pointer-emoji">💅</span>
+    <div class="bubble">
+      <span class="hey"><span class="script">hey you</span> <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle"/></svg></span>
+      download <strong>TikTok Pro</strong> with my link below, then
+      <span class="script">message me</span> so we can both earn rewards
     </div>
 
-    <!-- PRESSABLE TIKTOK PRO BUTTON (redirects to your link) -->
-    <a
-      href="https://pro.tiktok.com/t/ZT9PUNEtvHw9w-sCvc1/"
-      class="pro-button"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Download TikTok Pro and contact me to earn rewards"
-    >
-      <div class="pro-icon">
-        <!-- cute tiktok note -->
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M24.5 9.2C22.8 7.6 21.3 5.3 21.3 2.7V2.5H15.6V22.7C15.6 25.1 13.7 27.1 11.3 27.1C8.9 27.1 7 25.1 7 22.7C7 20.3 8.9 18.3 11.3 18.3C11.8 18.3 12.2 18.4 12.6 18.5V12.8C12.2 12.7 11.8 12.7 11.3 12.7C5.8 12.7 1.4 17.1 1.4 22.7C1.4 28.3 5.8 32.7 11.3 32.7C16.8 32.7 21.2 28.3 21.2 22.7V12.5C22.8 13.8 24.7 14.7 26.8 14.7V9C25.9 9 25 8.9 24.5 9.2Z" fill="url(#gradHeart)"/>
-          <defs>
-            <linearGradient id="gradHeart" x1="4" y1="2" x2="28" y2="30" gradientUnits="userSpaceOnUse">
-              <stop stop-color="#ff9ec2"/>
-              <stop offset="1" stop-color="#ff5c8a"/>
-            </linearGradient>
-          </defs>
+    <div class="cta-label">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle"/></svg>
+      tap here
+      <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#sparkle"/></svg>
+    </div>
+
+    <a class="cta"
+       href="https://pro.tiktok.com/t/ZT9PUNEtvHw9w-sCvc1/"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Download TikTok Pro with my referral link">
+      <span class="cta-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M9 18V6.5l10-2.5v11.5" stroke="url(#pink)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <circle cx="6.5" cy="18" r="3" fill="url(#pink)"/>
+          <circle cx="16.5" cy="15.5" r="3" fill="url(#pink)"/>
         </svg>
-      </div>
-      <div class="pro-text">
-        <span class="title">TikTok <span>Pro</span></span>
-        <span class="tagline">tap to download 💕</span>
-      </div>
+      </span>
+      <span class="cta-text">
+        <b>Get TikTok Pro</b>
+        <small>my referral link</small>
+      </span>
+      <svg class="cta-arrow" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M5 12h13m-5-6 6 6-6 6" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
     </a>
 
-    <!-- cute social proof -->
-    <div class="stats">
-      <div class="stat"><b>2.8M+</b><small>cuties</small></div>
-      <div class="stat"><b>4.9★</b><small>rating</small></div>
-      <div class="stat"><b>$12M</b><small>paid</small></div>
-    </div>
-
-    <div class="trust">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-      </svg>
-      verified link · official partner
-    </div>
+    <ol class="steps">
+      <li>
+        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14" stroke="#e84a86" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></span>
+        <em>step 1</em><span>tap &amp; download</span>
+      </li>
+      <li>
+        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" stroke="#e84a86" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg></span>
+        <em>step 2</em><span>open my link again</span>
+      </li>
+      <li>
+        <span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z" stroke="#e84a86" stroke-width="2.2" stroke-linejoin="round" fill="none"/><circle cx="9" cy="10.5" r="1.2" fill="#e84a86"/><circle cx="12" cy="10.5" r="1.2" fill="#e84a86"/><circle cx="15" cy="10.5" r="1.2" fill="#e84a86"/></svg></span>
+        <em>step 3</em><span>message me</span>
+      </li>
+    </ol>
 
     <p class="footnote">
-      tap the button → download → <strong>dm me</strong> for your reward 💋<br>
-      by continuing you agree to the <a href="#">terms</a>.
+      personal referral link · rewards follow TikTok's own program terms<br>
+      not affiliated with or endorsed by TikTok
     </p>
+  </main>
 
-  </div>
 </body>
 </html>
