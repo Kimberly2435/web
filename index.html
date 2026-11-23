@@ -17,6 +17,10 @@
       --rose-50:  #fff6fa;
       --lilac:    #e9dcff;
       --muted:    #a7798f;
+      --green-700: #1f7a4d;
+      --green-500: #2e9e64;
+      --green-100: #e2f8ec;
+      --green-300: #b6eccd;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -191,8 +195,41 @@
     .steps span { font-size: .7rem; font-weight: 800; color: var(--rose-900); line-height: 1.25; }
     .steps em { font-style: normal; font-size: .6rem; color: var(--muted); font-weight: 700; letter-spacing: .6px; text-transform: uppercase; }
 
-    .footnote {
-      font-size: .66rem; color: var(--muted); line-height: 1.55; font-weight: 600;
+    /* ---------- verified green link badge ---------- */
+    .verified {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: var(--green-100);
+      border: 1px solid var(--green-300);
+      color: var(--green-700);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .3px;
+      padding: 7px 16px 7px 12px;
+      border-radius: 999px;
+      margin: 0 auto 14px;
+      box-shadow: 0 4px 12px -6px rgba(46,158,100,.45);
+      text-decoration: none;
+      transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .verified:hover {
+      background: #d3f4e2;
+      box-shadow: 0 6px 16px -6px rgba(46,158,100,.6);
+    }
+    .verified:active { transform: scale(.97); }
+    .verified .check {
+      flex: none;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--green-500);
+      display: grid; place-items: center;
+      box-shadow: 0 0 0 2px rgba(46,158,100,.18);
+    }
+    .verified .check svg {
+      width: 11px; height: 11px;
+      display: block;
     }
   </style>
 </head>
@@ -292,10 +329,18 @@
       </li>
     </ol>
 
-    <p class="footnote">
-      personal referral link · rewards follow TikTok's own program terms<br>
-      not affiliated with or endorsed by TikTok
-    </p>
+    <!-- verified green link badge -->
+    <a class="verified"
+       href="https://pro.tiktok.com/t/ZT9PUNEtvHw9w-sCvc1/"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Verified referral link">
+      <span class="check" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M5 12.5l4.2 4.2L19 6.9" stroke="#ffffff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      verified link · secure redirect
+    </a>
   </main>
 
 </body>
